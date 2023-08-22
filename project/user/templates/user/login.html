@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block start %}
+    <div class="content">
+        <div class="login-box">
+            <img src="{% static "assets/favicon/logo.png" %}" alt="logo chmura plików" class="logo" />
+
+            <form class="login-form" id="login-form" method="POST">
+                {% csrf_token %}
+                <input type="text" id="username" name="username" placeholder="Nick" required maxlength="16">
+                <input type="password" id="password" name="password" placeholder="Hasło" required maxlength="32">
+
+                <div class="guziki">
+                    <div class="remember">
+                        <label class="el-switch">
+                            <input type="checkbox" name="rememberMe" id="rememberMe">
+                            <span class="el-switch-style"></span>
+                        </label>
+                        <span class="text">Zapamiętaj</span>
+                    </div>
+
+                    <div class="admin">
+                        <label class="el-switch">
+                            <input type="checkbox" name="isAdmin" id="isAdmin">
+                            <span class="el-switch-style"></span>
+                        </label>
+                        <span class="text">Administrator</span>
+                    </div>
+                </div>
+
+                <button type="submit">Zaloguj</button>
+            </form>
+
+        </div>
+    </div>
+{% endblock start %}
